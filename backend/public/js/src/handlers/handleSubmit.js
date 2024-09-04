@@ -15,8 +15,7 @@ function handleSubmit(e) {
 
   let selectedTag = tagSelect.value
   let query = searchInput.value.trim()
-  console.log('Query:', query)
-  console.log('Selected Tag:', selectedTag)
+
   if (query || selectedTag) {
     updateCurrentQueryState(query)
     updateSelectedTagState(selectedTag)
@@ -29,7 +28,6 @@ function handleSubmit(e) {
     searchInput.value = ''
     tagSelect.value = ''
   } else {
-    console.log(5)
     searchBox.classList.add('blink-border')
 
     setTimeout(() => {

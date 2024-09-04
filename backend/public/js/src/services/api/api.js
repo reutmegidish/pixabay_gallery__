@@ -25,7 +25,6 @@ export const fetchImages = async function (perPage = 20) {
     const result = await res.json()
 
     if (!result.hits || result.hits.length === 0) {
-      console.log('No images found.')
       return []
     }
 
@@ -38,8 +37,6 @@ export const fetchImages = async function (perPage = 20) {
       })
     )
 
-    console.log(state.currentPage)
-    console.log(state.imagesData)
     return images
   } catch (err) {
     console.error('Error fetching images:', err)

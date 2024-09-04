@@ -1,5 +1,4 @@
 function handleAddToFavorite(e, images) {
-  console.log(images)
   const button = e.currentTarget
   const imageId = Number(button.getAttribute('data-id'))
 
