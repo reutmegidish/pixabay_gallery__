@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module" src="./js/index.js" defer></script>
+
+    <link rel="stylesheet" href="./css/utils.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <title>Pixabay Gallery</title>
+  </head>
+  <body>
+    <header class="header flex culomn">
+      <div class="flex space-between">
+        <img src="./assets/images/logo.png" alt="logo" class="logo" />
+        <button id="favorites-button" class="favorites-button">
+          <i class="fas fa-heart"></i> Favorites
+        </button>
+      </div>
+
+      <section class="search-section flex culomn align-center justify-center">
+        <h1 class="search-h1">Pixabay</h1>
+        <h4 class="search-h4">
+          Discover Your Favorite Image from Our Beautiful Collection!
+        </h4>
+        <form id="search-form" class="search-box flex">
+          <button type="submit" id="search-button">
+            <i class="fas fa-search"></i>
+          </button>
+          <input type="text" id="search-input" placeholder="Search images..." />
+          <select class="tag-select"></select>
+        </form>
+      </section>
+    </header>
+
+    <main class="main-container flex culomn justify-center">
+      <div class="results-heading-container">
+        <h2 id="results-heading" class="results-heading"></h2>
+      </div>
+
+      <section class="cards-container"></section>
+      <button class="hidden more-img-btn">More Images</button>
+    </main>
+
+    <div id="modal hidden" class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <div class="modal-content"></div>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+</html>
