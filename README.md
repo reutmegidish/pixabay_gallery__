@@ -67,6 +67,9 @@ This application is a Single Page Application (SPA) designed for web-based image
 - **View Image Details**: Click on an image to open a modal with more details and a larger view.
     <img src="/backend/public/assets/images/read.me-images/pixabay-modal.png" alt="pixabay-modal" width="60%" />
 
+- **Responsive Design**: The application is fully responsive, ensuring a seamless experience across all devices and screen sizes.
+    <img src="/backend/public/assets/images/read.me-images/responsive.png" alt="pixabay-responsive" width="30%" />
+
 
 ## Code Structure
 
