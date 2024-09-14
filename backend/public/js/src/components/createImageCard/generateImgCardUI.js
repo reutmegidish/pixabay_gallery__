@@ -1,5 +1,14 @@
 function isImageFavorited(imageId) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || []
+  let favorites = []
+
+  try {
+    const localStorageFavorites = localStorage.getItem('favorites')
+    favorites = localStorageFavorites ? JSON.parse(localStorageFavorites) : []
+  } catch (error) {
+    console.error(`Local Storage error: ${error.message}`)
+    favorites = []
+  }
+
   return favorites.some((image) => image.id === imageId)
 }
 
