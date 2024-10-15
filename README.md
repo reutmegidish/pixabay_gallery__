@@ -16,7 +16,7 @@ This application is a Single Page Application (SPA) designed for web-based image
 
 - **Backend**: Node.js with Express
 - **Frontend**: HTML, CSS, JavaScript (ES6+)
-- **API**: [Pixabay API](https://pixabay.com/api/)
+- **API**: [Pixabay API](https://pixabay.com/api/docs/)
 
 ## Setup
 
@@ -56,18 +56,22 @@ This application is a Single Page Application (SPA) designed for web-based image
 
 ## Usage
 
-- **Search Images**: Enter a search term in the input field and select a category to find images.
+- **Search Images**: Enter a search term in the input field and select a category to find images.]
+  
      <img src="/backend/public/assets/images/read.me-images/pixabay.png" alt="Search-img" width="80%" />
 
 - **View Favorites**: Click on the "Favorites" button to view saved favorite images.
+  
      <img src="/backend/public/assets/images/read.me-images/favorite.png" alt="Favorite-img" width="80%" />
 
 - **Load More Images**: Click the "More Images" button to load additional results.
  
 - **View Image Details**: Click on an image to open a modal with more details and a larger view.
+  
     <img src="/backend/public/assets/images/read.me-images/pixabay-modal.png" alt="pixabay-modal" width="60%" />
 
 - **Responsive Design**: The application is fully responsive, ensuring a seamless experience across all devices and screen sizes.
+  
     <img src="/backend/public/assets/images/read.me-images/responsive.png" alt="pixabay-responsive" width="30%" />
 
 
