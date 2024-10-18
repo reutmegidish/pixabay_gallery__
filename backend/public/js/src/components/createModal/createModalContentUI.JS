@@ -8,6 +8,7 @@ function createModalContentUI(image) {
     />
     <p><strong>Tag:</strong> ${image.tags}</p>
     <p><strong>Image ID:</strong> ${image.id}</p>
+    <a href=${image.pageURL} target="_blank"><strong>Open image page on PIXABAY!</strong></a>
   `
 }
 export default createModalContentUI

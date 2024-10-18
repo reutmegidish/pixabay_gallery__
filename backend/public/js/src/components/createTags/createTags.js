@@ -5,6 +5,7 @@ function createTags(selectElement) {
     const option = document.createElement('option')
     option.value = tag.value
     option.textContent = tag.label
+
     selectElement.appendChild(option)
   })
 }

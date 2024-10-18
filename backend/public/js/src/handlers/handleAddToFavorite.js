@@ -22,6 +22,7 @@ function handleAddToFavorite(e, images) {
       tags: image.tags,
       previewURL: image.previewURL,
       webformatURL: image.webformatURL,
+      pageURL: image.pageURL,
     })
     button.classList.add('favorited')
   }

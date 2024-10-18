@@ -3,27 +3,29 @@ import { getPageState, state } from '../../state.js'
 import generateImgCardUI from './generateImgCardUI.js'
 import handleMoreImages from '../../handlers/handleMoreImages.js'
 import handleAddToFavorite from '../../handlers/handleAddToFavorite.js'
+import { getElement, selectors } from '../../utils/selectors.js'
 
 function createImageCard(
   images = state.imagesData,
   headingText = 'Search Results'
 ) {
   const page = getPageState()
-  const imagesContainer = document.querySelector('.cards-container')
-  const moreImgBtn = document.querySelector('.more-img-btn')
-  const resultsHeading = document.getElementById('results-heading')
+
+  const cardsContainer = getElement(selectors.cardsContainer)
+  const moreImgBtn = getElement(selectors.moreImgBtn)
+  const resultsHeading = getElement(selectors.resultsHeading)
 
   resultsHeading.textContent = state.currentQuery
     ? `${headingText} for '${state.currentQuery}'`
     : headingText
 
-  imagesContainer.innerHTML = ''
+  cardsContainer.innerHTML = ''
 
   if (images.length === 0) {
     if (page === 1) {
-      imagesContainer.innerHTML = '<p>No images found.</p>'
+      cardsContainer.innerHTML = '<p>No images found.</p>'
     } else {
-      imagesContainer.insertAdjacentHTML(
+      cardsContainer.insertAdjacentHTML(
         'beforeend',
         '<p>No more images available.</p>'
       )
@@ -36,9 +38,9 @@ function createImageCard(
   const imagesCards = images.map((image) => generateImgCardUI(image)).join('')
 
   if (page === 1) {
-    imagesContainer.insertAdjacentHTML('afterbegin', imagesCards)
+    cardsContainer.insertAdjacentHTML('afterbegin', imagesCards)
   } else {
-    imagesContainer.insertAdjacentHTML('beforeend', imagesCards)
+    cardsContainer.insertAdjacentHTML('beforeend', imagesCards)
   }
 
   moreImgBtn.classList.remove('hidden')
@@ -46,7 +48,7 @@ function createImageCard(
 
   handleModal(images)
 
-  document.querySelectorAll('.favorite-btn').forEach((button) => {
+  document.querySelectorAll(selectors.favoriteBtn).forEach((button) => {
     button.addEventListener('click', (e) => handleAddToFavorite(e, images))
   })
 }

@@ -1,11 +1,12 @@
 import createModalContentUI from '../components/createModal/createModalContentUI.JS'
+import { getElement, selectors } from '../utils/selectors.js'
 
 function handleModal(images) {
-  const modal = document.querySelector('.modal')
-  const overlay = document.querySelector('.overlay')
-  const btnCloseModal = document.querySelector('.close-modal')
-  const imagesContainer = document.querySelector('.cards-container')
-  const modalContent = document.querySelector('.modal-content')
+  const modal = getElement(selectors.modal)
+  const overlay = getElement(selectors.overlay)
+  const btnCloseModal = getElement(selectors.btnCloseModal)
+  const cardsContainer = getElement(selectors.cardsContainer)
+  const modalContent = getElement(selectors.modalContent)
 
   const openModal = function () {
     modal.classList.remove('hidden')
@@ -19,7 +20,7 @@ function handleModal(images) {
     modalContent.innerHTML = ''
   }
 
-  imagesContainer.querySelectorAll('.card-image').forEach((card) => {
+  cardsContainer.querySelectorAll(selectors.cardImage).forEach((card) => {
     card.addEventListener('click', (e) => {
       const cardId = e.currentTarget.getAttribute('data-id')
       const image = images.find((img) => img.id.toString() === cardId)

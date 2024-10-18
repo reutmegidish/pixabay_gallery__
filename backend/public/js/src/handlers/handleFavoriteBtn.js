@@ -1,8 +1,9 @@
 import createImageCard from '../components/createImageCard/createImageCard.js'
 import { state } from '../state.js'
+import { selectors, getElement } from '../../src/utils/selectors.js'
 
-const cardsContainer = document.querySelector('.cards-container')
-const moreImgBtn = document.querySelector('.more-img-btn')
+const cardsContainer = getElement(selectors.cardsContainer)
+const moreImgBtn = getElement(selectors.moreImgBtn)
 
 const getFavoritesFromLocalStorage = () => {
   return JSON.parse(localStorage.getItem('favorites')) || []
@@ -23,7 +24,7 @@ function handleFavoriteBtn() {
 
   moreImgBtn.classList.add('hidden')
 
-  document.querySelectorAll('.favorite-btn').forEach((button) => {
+  document.querySelectorAll(selectors.favoriteBtn).forEach((button) => {
     button.addEventListener('click', handleFavoriteBtn)
   })
 }

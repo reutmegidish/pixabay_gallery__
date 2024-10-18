@@ -17,36 +17,37 @@
     <title>Pixabay Gallery</title>
   </head>
   <body>
-    <header class="header flex culomn">
+    <header id="header" class="flex culomn">
       <div class="flex space-between">
         <img src="./assets/images/logo.png" alt="logo" class="logo" />
-        <button id="favorites-button" class="favorites-button">
+        <button id="favorites-button">
           <i class="fas fa-heart"></i> Favorites
         </button>
       </div>
 
-      <section class="search-section flex culomn align-center justify-center">
-        <h1 class="search-h1">Pixabay</h1>
-        <h4 class="search-h4">
-          Discover Your Favorite Image from Our Beautiful Collection!
-        </h4>
-        <form id="search-form" class="search-box flex">
+      <section
+        id="search-section"
+        class="flex culomn align-center justify-center"
+      >
+        <h1>Pixabay</h1>
+        <h4>Discover Your Favorite Image from Our Beautiful Collection!</h4>
+        <form id="search-form" class="flex">
           <button type="submit" id="search-button">
             <i class="fas fa-search"></i>
           </button>
           <input type="text" id="search-input" placeholder="Search images..." />
-          <select class="tag-select"></select>
+          <select id="tag-select"></select>
         </form>
       </section>
     </header>
 
-    <main class="main-container flex culomn justify-center">
-      <div class="results-heading-container">
-        <h2 id="results-heading" class="results-heading"></h2>
+    <main id="main-container" class="flex culomn justify-center">
+      <div id="heading-main-container">
+        <h2 id="main-heading"></h2>
       </div>
 
-      <section class="cards-container"></section>
-      <button class="hidden more-img-btn">More Images</button>
+      <section id="cards-container"></section>
+      <button id="more-img-btn" class="hidden">More Images</button>
     </main>
 
     <div id="modal hidden" class="modal hidden">

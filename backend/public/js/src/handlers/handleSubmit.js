@@ -4,14 +4,15 @@ import {
   updateCurrentQueryState,
   updateSelectedTagState,
 } from '../state.js'
+import { getElement, selectors } from '../utils/selectors.js'
 import { handleSearch } from './handleSearch.js'
 
 function handleSubmit(e) {
   e.preventDefault()
 
-  const searchInput = document.getElementById('search-input')
-  const tagSelect = document.querySelector('.tag-select')
-  const searchBox = document.querySelector('.search-box')
+  const searchInput = getElement(selectors.searchInput)
+  const tagSelect = getElement(selectors.tagSelect)
+  const searchForm = getElement(selectors.searchForm)
 
   let selectedTag = tagSelect.value
   let query = searchInput.value.trim()
@@ -28,10 +29,10 @@ function handleSubmit(e) {
     searchInput.value = ''
     tagSelect.value = ''
   } else {
-    searchBox.classList.add('blink-border')
+    searchForm.classList.add('blink-border')
 
     setTimeout(() => {
-      searchBox.classList.remove('blink-border')
+      searchForm.classList.remove('blink-border')
     }, 2000)
   }
 }

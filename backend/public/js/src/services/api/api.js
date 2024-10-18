@@ -29,11 +29,26 @@ export const fetchImages = async function (perPage = 20) {
     }
 
     const images = result.hits.map(
-      ({ id, tags, previewURL, webformatURL }) => ({
+      ({
         id,
         tags,
         previewURL,
         webformatURL,
+        pageURL,
+        views,
+        downloads,
+        likes,
+        comments,
+      }) => ({
+        id,
+        tags,
+        previewURL,
+        webformatURL,
+        pageURL,
+        views,
+        downloads,
+        likes,
+        comments,
       })
     )
 
