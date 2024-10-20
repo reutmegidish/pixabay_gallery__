@@ -1,6 +1,6 @@
 import handleSubmit from './src/handlers/handleSubmit.js'
 import createTags from './src/components/createTags/createTags.js'
-import handleFavoriteBtn from './src/handlers/handleFavoriteBtn.js'
+import handleFavoritesBtn from './src/handlers/handleFavoritesBtn.js'
 import { loadRandomImages } from './src/handlers/loadRandomImages.js'
 import { getElement, selectors } from './src/utils/selectors.js'
 
@@ -10,10 +10,9 @@ const initializeApp = () => {
   const tagSelect = getElement(selectors.tagSelect)
 
   searchForm.addEventListener('submit', handleSubmit)
-  favoritesButton.addEventListener('click', handleFavoriteBtn)
+  favoritesButton.addEventListener('click', handleFavoritesBtn)
 
   createTags(tagSelect)
-
   loadRandomImages()
 }
 

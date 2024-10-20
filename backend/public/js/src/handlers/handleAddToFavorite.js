@@ -1,3 +1,6 @@
+import { state } from '../state.js'
+import handleFavoritesBtn from './handleFavoritesBtn.js'
+
 function handleAddToFavorite(e, images) {
   const button = e.currentTarget
   const imageId = Number(button.getAttribute('data-id'))
@@ -28,6 +31,10 @@ function handleAddToFavorite(e, images) {
   }
 
   localStorage.setItem('favorites', JSON.stringify(favorites))
+
+  if (state.isFavorites) {
+    handleFavoritesBtn()
+  }
 }
 
 export default handleAddToFavorite

@@ -1,16 +1,4 @@
-function isImageFavorited(imageId) {
-  let favorites = []
-
-  try {
-    const localStorageFavorites = localStorage.getItem('favorites')
-    favorites = localStorageFavorites ? JSON.parse(localStorageFavorites) : []
-  } catch (error) {
-    console.error(`Local Storage error: ${error.message}`)
-    favorites = []
-  }
-
-  return favorites.some((image) => image.id === imageId)
-}
+import { isImageFavorited } from '../../utils/domUtils.js'
 
 function generateImgCardUI(image) {
   const isFavorited = isImageFavorited(image.id)

@@ -1,7 +1,7 @@
 .flex {
   display: flex;
 }
-.culomn {
+.column {
   flex-direction: column;
 }
 .align-center {

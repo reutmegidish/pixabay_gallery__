@@ -1,4 +1,4 @@
-import { incrementPageState } from '../state.js'
+import { incrementPageState, state } from '../state.js'
 import { handleSearch } from './handleSearch.js'
 
 async function handleMoreImages() {

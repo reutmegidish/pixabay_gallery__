@@ -102,12 +102,29 @@ h4 {
   padding: 8px 15px;
 }
 
-#main-heading {
+#main-result-heading {
+  margin-left: 0;
+  display: inline;
+  text-align: left;
+}
+
+.main-heading {
   margin-top: 20px;
   font-size: 18px;
   font-weight: 600;
-  text-align: left;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#back-button {
+  margin-right: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#back-button:hover {
+  transform: scale(1.05);
 }
 
 #cards-container {
@@ -184,19 +201,24 @@ h4 {
   display: none;
 }
 
-.card-modal-image {
-  width: 50%;
+.card-modal-image-container {
+  max-height: 60%;
+  width: 60%;
   min-width: 250px;
   height: auto;
-  max-height: 60vh;
-  object-fit: cover;
+  object-fit: contain;
   margin-bottom: 1rem;
+}
+.card-modal-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .modal-content h1,
 .modal-content p {
   text-align: center;
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
   font-size: 1rem;
 }
 
@@ -209,8 +231,7 @@ h4 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 600px;
+  width: 80%;
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -247,7 +268,7 @@ h4 {
   cursor: pointer;
 }
 
-#more-img-btn {
+.btn {
   width: 200px;
   margin: 20px auto;
   padding: 10px 20px;

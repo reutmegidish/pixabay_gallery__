@@ -17,7 +17,7 @@
     <title>Pixabay Gallery</title>
   </head>
   <body>
-    <header id="header" class="flex culomn">
+    <header id="header" class="flex column">
       <div class="flex space-between">
         <img src="./assets/images/logo.png" alt="logo" class="logo" />
         <button id="favorites-button">
@@ -27,7 +27,7 @@
 
       <section
         id="search-section"
-        class="flex culomn align-center justify-center"
+        class="flex column align-center justify-center"
       >
         <h1>Pixabay</h1>
         <h4>Discover Your Favorite Image from Our Beautiful Collection!</h4>
@@ -41,13 +41,17 @@
       </section>
     </header>
 
-    <main id="main-container" class="flex culomn justify-center">
-      <div id="heading-main-container">
-        <h2 id="main-heading"></h2>
+    <main id="main-container" class="flex column justify-center">
+      <div id="heading-main-container" class="flex space-between align-center">
+        <h2 id="main-result-heading" class="main-heading"></h2>
+
+        <button id="back-button" class="hidden main-heading">
+          <i class="fas fa-arrow-left"></i> Back To Search
+        </button>
       </div>
 
       <section id="cards-container"></section>
-      <button id="more-img-btn" class="hidden">More Images</button>
+      <button id="more-img-btn" class="btn hidden">More Images</button>
     </main>
 
     <div id="modal hidden" class="modal hidden">

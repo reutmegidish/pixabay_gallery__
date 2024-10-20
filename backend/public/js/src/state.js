@@ -3,6 +3,8 @@ export const state = {
   currentQuery: '',
   selectedTag: '',
   imagesData: [],
+  isFavorites: false,
+  savedFavorites: [],
 }
 
 export function initPageState() {
@@ -37,4 +39,8 @@ export function getCurrentQuery() {
 
 export function getSelectedTag() {
   return state.selectedTag
+}
+
+export function isFavorites(isFavoritesClicked) {
+  return (state.isFavorites = isFavoritesClicked)
 }
