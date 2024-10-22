@@ -12,7 +12,6 @@ function handleSubmit(e) {
   e.preventDefault()
   const searchInput = getElement(selectors.searchInput)
   const tagSelect = getElement(selectors.tagSelect)
-
   let selectedTag = tagSelect.value
   let query = searchInput.value.trim()
 

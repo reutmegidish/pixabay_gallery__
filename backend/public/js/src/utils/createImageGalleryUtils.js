@@ -1,15 +1,14 @@
 import generateImgCardUI from '../components/createImageGallery/generateImgCardUI.js'
-import handleAddToFavorite from '../handlers/handleAddToFavorite.js'
-import handleMoreImages from '../handlers/handleMoreImages.js'
 import { state } from '../state.js'
+import { getFavoritesFromLocalStorage } from './localStorageUtils.js'
 import { getElement, selectors } from './selectors.js'
+import handleAddToFavorites from '../handlers/handleAddToFavorites.js'
 import handleBackButton from '../handlers/handleBackButton.js'
+import handleMoreImages from '../handlers/handleMoreImages.js'
 
-export function addFavoriteListeners(images) {
-  const buttons = document.querySelectorAll(selectors.favoriteBtn)
-  buttons.forEach((button) => {
-    button.addEventListener('click', (e) => handleAddToFavorite(e, images))
-  })
+export function clearImageContainer() {
+  const cardsContainer = getElement(selectors.cardsContainer)
+  cardsContainer.innerHTML = ''
 }
 
 export function renderHeadingText() {
@@ -34,6 +33,24 @@ export function renderHeadingText() {
   }
 }
 
+export function hideMoreImgBtnShowBackBtn() {
+  const moreImgBtn = getElement(selectors.moreImgBtn)
+  const backButton = getElement(selectors.backButton)
+
+  moreImgBtn.classList.add('hidden')
+  backButton.classList.remove('hidden')
+  backButton.addEventListener('click', handleBackButton)
+}
+
+export function showMoreImgBtnHideBackBtn() {
+  const moreImgBtn = getElement(selectors.moreImgBtn)
+  const backButton = getElement(selectors.backButton)
+
+  backButton.classList.add('hidden')
+  moreImgBtn.classList.remove('hidden')
+  moreImgBtn.addEventListener('click', handleMoreImages)
+}
+
 export function handleNoImages(images) {
   const moreImgBtn = getElement(selectors.moreImgBtn)
   const cardsContainer = getElement(selectors.cardsContainer)
@@ -46,11 +63,6 @@ export function handleNoImages(images) {
   return false
 }
 
-export function clearImageContainer() {
-  const cardsContainer = getElement(selectors.cardsContainer)
-  cardsContainer.innerHTML = ''
-}
-
 export function renderImages(images) {
   const cardsContainer = getElement(selectors.cardsContainer)
   cardsContainer.innerHTML = images
@@ -58,34 +70,22 @@ export function renderImages(images) {
     .join('')
 }
 
-export function showMoreImgBtnHideBackBtn() {
-  const moreImgBtn = getElement(selectors.moreImgBtn)
-  const backButton = getElement(selectors.backButton)
-
-  backButton.classList.add('hidden')
-  moreImgBtn.classList.remove('hidden')
-  moreImgBtn.addEventListener('click', handleMoreImages)
+export function addFavoriteListeners(images) {
+  const buttons = document.querySelectorAll(selectors.favoriteBtn)
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => handleAddToFavorites(e, images))
+  })
 }
 
-export function hideMoreImgBtnShowBackBtn() {
-  const moreImgBtn = getElement(selectors.moreImgBtn)
-  const backButton = getElement(selectors.backButton)
-
-  moreImgBtn.classList.add('hidden')
-  backButton.classList.remove('hidden')
-  backButton.addEventListener('click', handleBackButton)
+export function toggleButtons(isFavorites) {
+  if (isFavorites) {
+    hideMoreImgBtnShowBackBtn()
+  } else {
+    showMoreImgBtnHideBackBtn()
+  }
 }
 
 export function isImageFavorited(imageId) {
-  let favorites = []
-
-  try {
-    const localStorageFavorites = localStorage.getItem('favorites')
-    favorites = localStorageFavorites ? JSON.parse(localStorageFavorites) : []
-  } catch (error) {
-    console.error(`Local Storage error: ${error.message}`)
-    favorites = []
-  }
-
+  const favorites = getFavoritesFromLocalStorage()
   return favorites.some((image) => image.id === imageId)
 }

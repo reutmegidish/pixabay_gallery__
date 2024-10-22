@@ -1,4 +1,4 @@
-import { isImageFavorited } from '../../utils/domUtils.js'
+import { isImageFavorited } from '../../utils/createImageGalleryUtils.js'
 
 function generateImgCardUI(image) {
   const isFavorited = isImageFavorited(image.id)

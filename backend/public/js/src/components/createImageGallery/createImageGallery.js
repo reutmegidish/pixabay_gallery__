@@ -4,27 +4,18 @@ import {
   addFavoriteListeners,
   clearImageContainer,
   handleNoImages,
-  hideMoreImgBtnShowBackBtn,
   renderHeadingText,
   renderImages,
-  showMoreImgBtnHideBackBtn,
-} from '../../utils/domUtils.js'
+  toggleButtons,
+} from '../../utils/createImageGalleryUtils.js'
 
 function createImageGallery(images) {
   const isFavorites = state.isFavorites
 
   clearImageContainer()
   renderHeadingText()
-
-  if (isFavorites) {
-    hideMoreImgBtnShowBackBtn()
-    addFavoriteListeners()
-  } else {
-    showMoreImgBtnHideBackBtn()
-  }
-
+  toggleButtons(isFavorites)
   if (handleNoImages(images)) return
-
   renderImages(images)
   handleModal(images)
   addFavoriteListeners(images)

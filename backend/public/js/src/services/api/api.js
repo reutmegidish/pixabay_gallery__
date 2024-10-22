@@ -1,9 +1,4 @@
-import {
-  getCurrentQuery,
-  getPageState,
-  getSelectedTag,
-  state,
-} from '../../state.js'
+import { getCurrentQuery, getPageState, getSelectedTag } from '../../state.js'
 
 export const fetchImages = async function (perPage = 20) {
   const query = getCurrentQuery()
